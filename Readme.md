@@ -11,4 +11,4 @@
 4. 🌘 Dark/Light Mode: Toggle between dark and light modes for a comfortable viewing experience.
 5. ⭐ Rate Songs: Share your opinion by rating songs.
 
-Happy coding 💕
+Happy coding 💕.
