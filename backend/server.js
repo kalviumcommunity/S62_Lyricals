@@ -3,6 +3,7 @@ if(process.env.NODE_ENV !=='PRODUCTION'){
 }
 const express=require('express')
 const connectDataBase=require('./DB/database.js')
+const mongoose=require('mongoose')
 
 
 const app=express();
@@ -13,6 +14,10 @@ app.get('/ping',(req,res)=>{
     return res.send('pong')
 })
 
+app.get('/',(req,res)=>{
+    const dbStatus=mongoose.connection.readyState===1?'Connected Successfully':'Connection Failed'
+    res.send({dbStatus})
+})
 
 app.listen(PORT,async()=>{
     connectDataBase()
