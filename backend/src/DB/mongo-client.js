@@ -8,9 +8,15 @@ console.log(process.env.DB_URL)
 const mongoConnection=new mongoClient(process.env.DB_URL)
 
 
-function getDB (){
-    const db= mongoConnection.db("ASAP").collection('User')
-    return db;
+ async function getDB (){
+     try {
+         await mongoConnection.connect(); // Ensure the connection is made
+         const db = mongoConnection.db("ASAP").collection('User');
+         return db;
+     } catch (error) {
+         console.error("Failed to connect to MongoDB", error);
+         throw error;
+     }
 
 }
 

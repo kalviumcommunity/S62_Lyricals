@@ -6,11 +6,14 @@ const express=require('express')
 const connectDataBase=require('./DB/database.js')
 const itemSchema=require('./Model/ProductModel.js')
 const mongoose=require('mongoose')
-const { getDb, mongoConnection }=require('./DB/mongo-client.js')
+const { getDB, mongoConnection }=require('./DB/mongo-client.js')
+const router=require('./Routes/route.js')
+
 
 const app=express();
-const PORT=process.env.PORT || 3000
+const PORT=3000
 app.use(express.json())
+app.use('/CRUD-operation',router)
 
 
 app.get('/ping',(req,res)=>{
