@@ -12,5 +12,6 @@
 5. ⭐ Rate Songs: Share your opinion by rating songs.
 
 Render Deployement Link: https://s62-lyricals.onrender.com/ping 
+Netlify Deployment Link : https://lyricalsss.netlify.app
 
 Happy coding 💕.
