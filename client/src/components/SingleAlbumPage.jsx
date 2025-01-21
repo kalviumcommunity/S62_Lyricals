@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 const SingleAlbumPage = () => {
-    // Sample data
+    
     const album = {
         title: "÷ (Divide)",
         artist: "Ed Sheeran",
-        cover: "https://www.thisisdig.com/wp-content/uploads/2021/08/es-divide-final-artwork-lo-res-e1628675708209.jpg", // Replace with an actual image URL
+        cover: "https://www.thisisdig.com/wp-content/uploads/2021/08/es-divide-final-artwork-lo-res-e1628675708209.jpg", 
         songs: [
             { id: 1, title: "Shape of you", lyrics: "Girl, you know I want your love...", rating: 4 },
             { id: 2, title: "Happier", lyrics: "'Cause baby you look happier, you do...", rating: 5 },
@@ -16,7 +16,7 @@ const SingleAlbumPage = () => {
 
     const [favorites, setFavorites] = useState([]);
 
-    // Toggle favorite
+    
     const toggleFavorite = (songId) => {
         if (favorites.includes(songId)) {
             setFavorites(favorites.filter((id) => id !== songId));
