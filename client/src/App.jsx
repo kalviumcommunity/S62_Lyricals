@@ -1,10 +1,12 @@
 import { useState } from 'react'
 
+
 // import './App.css'
 
 function App() {
   
   return (
+    
     < div className = "bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100" >
     {/* Header Section */ }
     < header className = "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white py-6" >
@@ -70,6 +72,7 @@ function App() {
       </div>
       </footer >
     </div >
+    
   )
 }
 
