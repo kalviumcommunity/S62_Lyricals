@@ -22,34 +22,46 @@ function Entities() {
     
 
     return (
-        <div className="p-6 font-sans bg-gradient-to-b from-teal-300 via-teal-100 to-blue-100 min-h-screen">
-            <h1 className="text-3xl font-bold text-teal-900 mb-6 text-center">User Entities</h1>
+        <div className="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 min-h-screen p-6 font-sans">
+            <h1 className="text-3xl font-bold text-center text-indigo-500 dark:text-indigo-400 mb-6">
+                User Entities
+            </h1>
             <div className="flex justify-center mb-6">
                 <button
                     onClick={handleAddUser}
-                    className="px-6 py-2 bg-teal-600 text-white font-semibold rounded-lg shadow-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-75"
+                    className="px-6 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold rounded-lg shadow-md hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 transition-all"
                 >
                     Add User
                 </button>
             </div>
+
+
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {
-                    data?.map((ele, index) => {
-                        return (
-                            <div key={index} className="flex flex-col p-6 border border-teal-300 rounded-lg shadow-lg bg-white">
-                                <h3 className="text-xl font-semibold text-teal-800 mb-2">{ele.name}</h3>
-                                <p className="text-gray-700 mb-1">
-                                    <span className="font-medium text-teal-900">Age:</span> {ele.age}
-                                </p>
-                                <p className="text-gray-700">
-                                    <span className="font-medium text-teal-900">Description:</span> {ele.description}
-                                </p>
-                            </div>
-                        );
-                    })
-                }
+                {data?.map((ele, index) => (
+                    <div
+                        key={index}
+                        className="bg-white dark:bg-gray-800 p-6 border border-gray-300 dark:border-gray-700 rounded-lg shadow-md"
+                    >
+                        <h3 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-2">
+                            {ele.name}
+                        </h3>
+                        <p className="text-gray-700 dark:text-gray-300 mb-1">
+                            <span className="font-medium text-indigo-500 dark:text-indigo-400">
+                                Age:
+                            </span>{" "}
+                            {ele.age}
+                        </p>
+                        <p className="text-gray-700 dark:text-gray-300">
+                            <span className="font-medium text-indigo-500 dark:text-indigo-400">
+                                Description:
+                            </span>{" "}
+                            {ele.description}
+                        </p>
+                    </div>
+                ))}
             </div>
         </div>
+
     )
 }
 
