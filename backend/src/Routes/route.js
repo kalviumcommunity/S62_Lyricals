@@ -1,7 +1,7 @@
-const express=require('express')
-const router=express.Router()
+const express = require('express')
+const router = express.Router()
 const mongoose = require('mongoose')
-const {getDB}=require('../DB/mongo-client.js')
+const { getDB } = require('../DB/mongo-client.js')
 const { ObjectId } = require('mongodb')
 router.use(express.json());
 
@@ -15,6 +15,7 @@ router.get("/user", async (req, res) => {
     }
 })
 router.post("/create-user", async (req, res) => {
+    console.log(req.body)
     try {
         const db = await getDB();
         console.log(db)
@@ -46,4 +47,4 @@ router.put("/update/:id", async (req, res) => {
     }
 })
 
-module.exports=router
+module.exports = router

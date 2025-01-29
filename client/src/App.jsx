@@ -3,6 +3,7 @@ import SingleAlbumPage from './components/SingleAlbumPage';
 import LandingPage from './components/LandingPage';
 import Entities from './components/Entities';
 
+
 function App() {
   return (
     <Router>
@@ -10,6 +11,7 @@ function App() {
         <Route path="/album" element={<SingleAlbumPage />} />
         <Route path="/" element={<LandingPage />} />
         <Route path='/entities' element={<Entities/>}/>
+        
       </Routes>
     </Router>
   );
