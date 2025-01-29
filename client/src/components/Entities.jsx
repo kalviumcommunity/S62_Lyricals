@@ -15,12 +15,23 @@ function Entities() {
         fetchData()
     }, [])
 
+    const handleAddUser = () => {
+        navigate('/add-entity')
+    }
+
     
 
     return (
         <div className="p-6 font-sans bg-gradient-to-b from-teal-300 via-teal-100 to-blue-100 min-h-screen">
             <h1 className="text-3xl font-bold text-teal-900 mb-6 text-center">User Entities</h1>
-            
+            <div className="flex justify-center mb-6">
+                <button
+                    onClick={handleAddUser}
+                    className="px-6 py-2 bg-teal-600 text-white font-semibold rounded-lg shadow-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-75"
+                >
+                    Add User
+                </button>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {
                     data?.map((ele, index) => {
