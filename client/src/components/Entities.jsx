@@ -22,10 +22,12 @@ function Entities() {
     
 
     return (
+
         <div className="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 min-h-screen p-6 font-sans">
             <h1 className="text-3xl font-bold text-center text-indigo-500 dark:text-indigo-400 mb-6">
                 User Entities
             </h1>
+
             <div className="flex justify-center mb-6">
                 <button
                     onClick={handleAddUser}
@@ -34,6 +36,7 @@ function Entities() {
                     Add User
                 </button>
             </div>
+
 
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
