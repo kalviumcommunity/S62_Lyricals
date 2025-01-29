@@ -28,6 +28,16 @@ function Entities() {
                 User Entities
             </h1>
 
+            <div className="flex justify-center mb-6">
+                <button
+                    onClick={handleAddUser}
+                    className="px-6 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold rounded-lg shadow-md hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 transition-all"
+                >
+                    Add User
+                </button>
+            </div>
+
+
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {data?.map((ele, index) => (
