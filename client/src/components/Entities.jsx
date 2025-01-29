@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 function Entities() {
     const [data, setData] = useState([])
+    const navigate=useNavigate()
 
     const fetchData = async () => {
         const response = await axios.get('http://localhost:3000/CRUD-operation/user')
@@ -10,15 +12,15 @@ function Entities() {
     }
 
     useEffect(() => {
-        const callhandler = async () => {
-            await fetchData()
-        }
-        callhandler()
+        fetchData()
     }, [])
+
+    
 
     return (
         <div className="p-6 font-sans bg-gradient-to-b from-teal-300 via-teal-100 to-blue-100 min-h-screen">
             <h1 className="text-3xl font-bold text-teal-900 mb-6 text-center">User Entities</h1>
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {
                     data?.map((ele, index) => {
