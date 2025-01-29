@@ -24,9 +24,7 @@ function AddEntityPage() {
 
 
         try {
-            const response = await axios.post('http://localhost:3000/CRUD-operation/create-user', formData
-
-            )
+            const response = await axios.post('http://localhost:3000/CRUD-operation/create-user', formData)
             console.log(response.data)
             navigate('/entities')
         } catch (err) {
