@@ -19,6 +19,18 @@ function Entities() {
         navigate('/add-entity')
     }
 
+    const handleUpdateUser=(id)=>{
+        navigate(`/update-entity/${id}`)
+    }
+
+    const handleDeleteUser=async(id)=>{
+        try{
+            await axios.delete(`http://localhost:3000/CRUD-operation/delete/${id}`)
+            fetchData()
+        }catch(err){
+            console.error("Error deleting user:", err);
+        }
+    }
     
 
     return (
@@ -42,7 +54,7 @@ function Entities() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {data?.map((ele, index) => (
                     <div
-                        key={index}
+                        key={ele._id || index}
                         className="bg-white dark:bg-gray-800 p-6 border border-gray-300 dark:border-gray-700 rounded-lg shadow-md"
                     >
                         <h3 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-2">
@@ -60,6 +72,20 @@ function Entities() {
                             </span>{" "}
                             {ele.description}
                         </p>
+                        <div className="mt-4 flex space-x-4">
+                            <button
+                                onClick={() => handleUpdateUser(ele._id)}
+                                className="px-4 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white rounded-lg shadow-md hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 transition-all"
+                            >
+                                Update
+                            </button>
+                            <button
+                                onClick={() => handleDeleteUser(ele._id)}
+                                className="px-4 py-2 bg-gradient-to-r from-pink-500 via-red-600 to-purple-600 text-white rounded-lg shadow-md hover:from-pink-600 hover:via-red-700 hover:to-purple-700 transition-all"
+                            >
+                                Delete
+                            </button>
+                        </div>
                     </div>
                 ))}
             </div>
