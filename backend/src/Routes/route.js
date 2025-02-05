@@ -17,9 +17,16 @@ router.get("/user", async (req, res) => {
 router.post("/create-user", async (req, res) => {
     console.log(req.body)
     try {
+        const { name, age, description } = req.body
+        if (!name || !age || !description) {
+            return res.status(400).send({ message: 'All fields are required' })
+        }
+        if ( isNaN(Number(age))) {
+            return res.status(400).send({ message: 'age should be in number' })
+        }
         const db = await getDB();
         console.log(db)
-        const insertData = await db.insertOne({ ...req.body })
+        const insertData = await db.insertOne({name,age,description})
         return res.status(201).send({ message: "Data inserted successfully", insertData })
     } catch (err) {
         return res.status(500).json({ message: err.message })
