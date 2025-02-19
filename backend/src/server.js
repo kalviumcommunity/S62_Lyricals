@@ -4,12 +4,12 @@ if (process.env.NODE_ENV !== 'PRODUCTION') {
 
 const express = require('express')
 const connectDataBase = require('./DB/database.js')
-const itemSchema = require('./Model/ProductModel.js')
+const User = require('./Model/UserModel.js')
 const mongoose = require('mongoose')
 const cors = require("cors")
 const { getDB, mongoConnection } = require('./DB/mongo-client.js')
 const router = require('./Routes/route.js')
-
+const SQLRouter=require('./Routes/SQL.Route.js')
 
 const app = express();
 const PORT = 3000
@@ -17,6 +17,7 @@ app.use(express.json())
 app.use(cors());
 
 app.use('/CRUD-operation', router)
+app.use('/mysql',SQLRouter)
 
 
 app.get('/ping', (req, res) => {

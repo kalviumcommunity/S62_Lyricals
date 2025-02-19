@@ -5,6 +5,7 @@ import Entities from './components/Entities';
 import AddEntityPage from './components/AddEntityPage';
 import UpdateEntitiesPage from './components/UpdateEntitiesPage';
 
+
 function App() {
   return (
     <Router>
