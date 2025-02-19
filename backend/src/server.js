@@ -10,11 +10,13 @@ const cors = require("cors")
 const { getDB, mongoConnection } = require('./DB/mongo-client.js')
 const router = require('./Routes/route.js')
 const SQLRouter=require('./Routes/SQL.Route.js')
+const cookieParser=require('cookie-parser')
 
 const app = express();
 const PORT = 3000
 app.use(express.json())
 app.use(cors());
+app.use(cookieParser())
 
 app.use('/CRUD-operation', router)
 app.use('/mysql',SQLRouter)
@@ -32,6 +34,22 @@ app.get('/', async (req, res) => {
     res.send({ readyState })
 
 })
+
+app.post('/login', (req, res) => {
+    const { username } = req.body;
+    if (!username) {
+        return res.status(400).json({ message: 'Username is required' });
+    }
+
+    res.cookie('username', username, { httpOnly: true, secure: true, sameSite: 'Strict' });
+    res.json({ message: 'Login successful' });
+});
+
+
+app.post('/logout', (req, res) => {
+    res.clearCookie('username');
+    res.json({ message: 'Logout successful' });
+});
 
 
 app.listen(PORT, async () => {

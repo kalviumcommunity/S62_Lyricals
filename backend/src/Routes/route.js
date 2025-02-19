@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 const { getDB } = require('../DB/mongo-client.js')
 const { ObjectId } = require('mongodb')
 router.use(express.json());
+const User=require('../Model/UserModel.js')
+
 
 router.get("/user", async (req, res) => {
     try {
@@ -53,5 +55,7 @@ router.put("/update/:id", async (req, res) => {
         return res.status(500).json({ message: err.message })
     }
 })
+
+
 
 module.exports = router
