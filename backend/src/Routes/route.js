@@ -5,14 +5,26 @@ const { getDB } = require('../DB/mongo-client.js')
 const { ObjectId } = require('mongodb')
 router.use(express.json());
 const User=require('../Model/UserModel.js')
+require('dotenv').config()
+const jwt=require('jsonwebtoken')
+const JWT_SECRET=process.env.JWT_SECRET_KEY
 
 
 router.get("/user", async (req, res) => {
     try {
+        const token= req.cookies.token;
+
+        if(!token){
+            return res.status(401).json({message:"Unauthorized"})
+        }
+        const decoded=jwt.verify(token,JWT_SECRET)
         const db = await getDB()
         const userData = await db.find().toArray()
         return res.status(200).send(userData)
     } catch (err) {
+        if (err.name === "JsonWebTokenError" ) {
+            return res.status(401).json({ message: "Invalid token" });
+        }
         return res.status(500).json({ message: err.message })
     }
 })
